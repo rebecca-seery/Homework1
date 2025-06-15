@@ -1,0 +1,39 @@
+---
+title: "Homework 1"
+author: "Rebecca Seery"
+format: pdf
+---
+
+# Iris dataset
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+library(tidyverse)
+data(iris)
+```
+
+The **Iris** dataset contains the measurements of 50 different flowers belonging to three different species of iris:
+
+-   *Setosa*
+-   *Versicolor*
+-   *Virginica*
+
+This data is available in Base R by using `data(iris)`.
+
+The first few rows of the dataset are as follows:
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+knitr::kable(head(iris))
+```
+
+Here is a plot of two of the measures in the dataset: the *Sepal Length* and *Petal Length*. We can see that [*Setosa*]{style="color:green;"} is considerably separated from the other species *Versicolor* and *Virginica*.
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+# Create a scatter plot using ggplot:
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Length, color = Species)) +
+  geom_point() +
+  theme_minimal() +
+  labs(title = "Iris Data", 
+       x = "Sepal Length (cm)", 
+       y = "Petal Length (cm)") +
+  theme(legend.position = "none")
+```
